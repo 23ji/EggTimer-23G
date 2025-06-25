@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+  var eggTime = ["soft": 5, "medium": 7, "hard": 12]
   
   @IBOutlet weak var progressBar: UIProgressView!
   
