@@ -10,6 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
-
-
+  
+  @IBOutlet weak var progressBar: UIProgressView!
+  
+  @IBOutlet weak var softButton: UIButton!
+  
+  @IBAction func hardnessSelected(_ sender: UIButton) {
+   
+  }
+  
 }
