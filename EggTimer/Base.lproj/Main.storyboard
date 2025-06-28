@@ -148,6 +148,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="hardnessButton" destination="NEu-V5-iHi" id="ApZ-mr-n8G"/>
                         <outlet property="progressBar" destination="RVc-aG-ASR" id="JGN-UB-a2S"/>
                     </connections>
                 </viewController>
