@@ -11,8 +11,8 @@ import UIKit
 class ViewController: UIViewController {
   
   var eggTime = ["Soft": 5, "Medium": 7, "Hard": 12]
-  var totalTime = 0
-  var progressTime = 0
+  var totalTime: Float = 0.0
+  var progressTime: Float = 0.0
   
   @IBOutlet weak var progressBar: UIProgressView!
   
@@ -22,17 +22,18 @@ class ViewController: UIViewController {
     guard let eggText = sender.titleLabel?.text else { return }
     guard let totalTime = eggTime[sender.currentTitle!] else { return }
     
-    self.progressBar.progress = Float(totalTime)
+    //self.progressBar.progress = Float(totalTime)
+    self.progressBar.progress = 1.0
     
     Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+      self.progressTime += 1.0 / Float(totalTime)
       
-      self.progressTime += 1
-      
-//      if self.progressTime >= self.totalTime {
-//        self.timer?.invalidate()
-//        self.timer = nil
-//      }
+      if self.progressTime <= 1.0 {
+        print(self.progressTime)
+        print(totalTime)
+        
+        self.progressBar.progress = 1.0 - Float(self.progressTime)
+      }
     }
-    
   }
 }
