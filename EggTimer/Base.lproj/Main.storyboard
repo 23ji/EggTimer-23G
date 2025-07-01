@@ -150,6 +150,7 @@
                     <connections>
                         <outlet property="hardnessButton" destination="NEu-V5-iHi" id="ApZ-mr-n8G"/>
                         <outlet property="progressBar" destination="RVc-aG-ASR" id="JGN-UB-a2S"/>
+                        <outlet property="titleLabel" destination="XLm-5r-pSP" id="Qhx-4J-pb5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
