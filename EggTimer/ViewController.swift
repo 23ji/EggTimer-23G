@@ -21,7 +21,44 @@ class ViewController: UIViewController {
   var passedTime = 0
   
   @IBAction func hardnessSelected(_ sender: UIButton) {
+    guard let title = sender.currentTitle else { return }
+    guard let time = self.eggTime[title] else { return }
+    // 기존 : guard let totalTime = self.eggTime[title] else { return } -> 지역변수됨
     
     
+    print("totalTime: \(totalTime)")
+    // 초기화
+    self.totalTime = time
+    self.progressBar.progress = 1.0
+    self.timer.invalidate() //?
+    self.passedTime = 0
+    self.titleLabel.text = "How do you like your eggs?"
+    
+    
+    //타이머 가동
+    self.timer = Timer.scheduledTimer(
+      timeInterval: 1.0,
+      target: self,
+      selector: #selector(updateTimer),
+      userInfo: nil,
+      repeats: true)
+  }
+  
+  @objc func updateTimer() {
+    
+    if self.passedTime <= self.totalTime {
+      self.progressBar.progress = Float(passedTime) / Float(totalTime)
+      
+      self.passedTime += 1
+      
+      print(self.passedTime)
+      print(self.progressBar.progress)
+      
+      if self.passedTime == self.totalTime {
+        self.titleLabel.text = "Done!"
+      }
+    } else {
+      self.timer.invalidate()
+    }
   }
 }
