@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     print("totalTime: \(totalTime)")
     // 초기화
     self.totalTime = time
-    self.progressBar.progress = 1.0
+    self.progressBar.progress = 0.0
     self.timer.invalidate() //?
     self.passedTime = 0
     self.titleLabel.text = "How do you like your eggs?"
@@ -47,9 +47,10 @@ class ViewController: UIViewController {
   @objc func updateTimer() {
     
     if self.passedTime <= self.totalTime {
+      self.passedTime += 1
+
       self.progressBar.progress = Float(passedTime) / Float(totalTime)
       
-      self.passedTime += 1
       
       print(self.passedTime)
       print(self.progressBar.progress)
